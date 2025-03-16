@@ -1,0 +1,28 @@
+---
+import { Icon } from "astro-icon/components";
+import "../styles/global.css";
+
+// Properties
+const title = Astro.props.title;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body
+		class="text-white bg-gray-700 h-dvh bg-[url(/src/assets/background01.jpg)] bg-cover bg-center bg-fixed bg-blend-overlay"
+	>
+		<header class="flex justify-center py-4 bg-gray-800/75">
+			<h1 class="font-bold text-2xl">Welcome to RavenNode!</h1>
+		</header>
+		<main>
+			<slot />
+		</main>
+	</body>
+</html>

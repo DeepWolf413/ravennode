@@ -1,22 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
-import ValheimCardBackground from "../assets/background03.jpg";
 ---
 
 <Layout title="RavenNode">
-    <section class="flex flex-col items-center">
-        <h2 class="font-bold text-xl my-2">Mod Projects</h2>
-        <ul class="grid grid-cols-1 sm:grid-cols-2 space-x-1 space-y-1">
-            <li>
-                <ProjectCard
-                    title="Valheim"
-                    description="All my Valheim mods in one place"
-                    backgroundImage={ValheimCardBackground}
-                />
-            </li>
-        </ul>
-    </section>
+	<section class="flex flex-col items-center">
+		<h2 class="mt-4">Select a mod category</h2>
+		<ul class="mt-4 grid grid-cols-1 sm:grid-cols-2 space-x-4">
+			<li>
+				<ProjectCard
+					title="Valheim"
+					description="All my Valheim mods in one place"
+					backgroundImage="/src/assets/cards/projectcard-valheim.jpeg"
+				/>
+			</li>
+			<li>
+				<ProjectCard
+					title="GTA V"
+					description="All my GTA V mods in one place"
+					backgroundImage="/src/assets/cards/projectcard-gtav.jpeg"
+				/>
+			</li>
+		</ul>
+	</section>
 </Layout>
 
 <!--

@@ -15,11 +15,31 @@ const title = Astro.props.title;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body
-		class="text-white bg-gray-700 h-dvh bg-[url(/src/assets/background01.jpg)] bg-cover bg-center bg-fixed bg-blend-overlay"
-	>
-		<header class="flex justify-center py-4 bg-gray-800/75">
-			<h1 class="font-bold text-2xl">Welcome to RavenNode!</h1>
+	<body class="text-white bg-linear-to-br from-gray-900 to-gray-800 h-dvh">
+		<header class="flex justify-between p-2 bg-gray-800 border-b-1 border-b-gray-500">
+			<h1 class="font-semibold text-xl">
+				Raven<span class="font-light">Node</span>
+			</h1>
+			<ul class="flex space-x-2">
+				<li>
+					<a
+						href="#"
+						target="_blank"
+						rel="noreferrer"
+						title="Invite link to the RavenNode Discord server."
+						><Icon name="mdi:discord" size={24} /></a
+					>
+				</li>
+				<li>
+					<a
+						href="https://github.com/DeepWolf413"
+						target="_blank"
+						rel="noreferrer"
+						title="Profile of DeepWolf413 on GitHub."
+						><Icon name="mdi:github" size={24} /></a
+					>
+				</li>
+			</ul>
 		</header>
 		<main>
 			<slot />

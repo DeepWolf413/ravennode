@@ -1,19 +1,35 @@
 ---
+import type { ImageMetadata } from "astro";
+import { getImage } from "astro:assets";
 interface Props {
     title: string;
-    description: string;
-    backgroundImage: ImageMetadata;
+    description?: string;
+    backgroundImage: string;
 }
 
 const { title, description, backgroundImage } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/cards/*.{jpeg,jpg,png}",
+);
+
+if (!images[backgroundImage])
+    throw new Error(
+        `"${backgroundImage}" does not exist in glob: "src/assets/cards/*.{jpeg,jpg,png,gif}"`,
+    );
+
+const importedImage = await images[backgroundImage]();
+const img = await getImage({ src: importedImage.default });
 ---
 
 <section
-    class={`bg-[url(${backgroundImage.src})] bg-cover bg-center bg-blend-multiply bg-gray-900/75 transition hover:scale-105 hover:bg-gray-800 h-72`}
+    class="relative opacity-75 transition rounded-xl bg-cover outline-2 outline-gray-900 to-black from-black/20 shadow-2xl bg-[linear-gradient(to_bottom,var(--tw-gradient-from),var(--tw-gradient-to)),var(--image)] h-72 min-w-56
+    hover:scale-105 hover:opacity-100 hover:from-white/20 hover:outline-white"
 >
-    <h3 class="font-bold text-center bg-gray-800">{title}</h3>
-    <a class="flex flex-col items-center" href="#">
-        <p class="text-gray-400">{description}</p>
-        Check out
-    </a>
+    <h3
+        class="absolute bottom-4 left-0 right-0 text-center pointer-events-none text-gray-300 text-xl"
+    >
+        {title}
+    </h3>
+    <a class="block w-full h-full" href="#"></a>
 </section>
+<style define:vars={{ image: `url("${img.src}")` }}></style>

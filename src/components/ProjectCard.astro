@@ -1,0 +1,19 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    backgroundImage: ImageMetadata;
+}
+
+const { title, description, backgroundImage } = Astro.props;
+---
+
+<section
+    class={`bg-[url(${backgroundImage.src})] bg-cover bg-center bg-blend-multiply bg-gray-900/75 transition hover:scale-105 hover:bg-gray-800 h-72`}
+>
+    <h3 class="font-bold text-center bg-gray-800">{title}</h3>
+    <a class="flex flex-col items-center" href="#">
+        <p class="text-gray-400">{description}</p>
+        Check out
+    </a>
+</section>

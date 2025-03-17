@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import ValheimCardBackground from "../assets/background03.jpg";
+---
+
+<Layout title="RavenNode">
+    <section class="flex flex-col items-center">
+        <h2 class="font-bold text-xl my-2">Mod Projects</h2>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 space-x-1 space-y-1">
+            <li>
+                <ProjectCard
+                    title="Valheim"
+                    description="All my Valheim mods in one place"
+                    backgroundImage={ValheimCardBackground}
+                />
+            </li>
+        </ul>
+    </section>
+</Layout>
+
+<!--
+<ul>
+					<li>
+						<a
+							href="#"
+							target="_blank"
+							rel="noreferrer"
+							title="Invite link to the RavenNode Discord server."
+							><Icon name="mdi:discord" size={24} /></a
+						>
+					</li>
+					<li>
+						<a
+							href="https://github.com/DeepWolf413"
+							target="_blank"
+							rel="noreferrer"
+							title="Profile of DeepWolf413 on GitHub."
+							><Icon name="mdi:github" size={24} /></a
+						>
+					</li>
+				</ul>
+                 -->
